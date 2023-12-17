@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     // Нажатие кнопки "Добавить число"
@@ -33,12 +32,16 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewMultiple = findViewById(R.id.textViewMultiple);
         TextView textViewNOD = findViewById(R.id.textViewNOD);
 
-        // Проверяем, что число 1 больше нуля
+        // Проверяем, что числа не пустые
         String num1Str = editTextNumber1.getText().toString();
         String num2Str = editTextNumber2.getText().toString();
 
         if (num1Str.length() == 0 || num2Str.length() == 0){
             textViewTitle.setText("Укажите числа");
+            textViewNum1.setText("");
+            textViewNum2.setText("");
+            textViewMultiple.setText("");
+            textViewNOD.setText("");
             return;
         } else {
             textViewTitle.setText("Введите натуральные числа:");
@@ -47,6 +50,18 @@ public class MainActivity extends AppCompatActivity {
         try {
             int num1 = Integer.parseInt(num1Str);
             int num2 = Integer.parseInt(num2Str);
+
+            // Проверяем, что числа не равны 0
+            if (num1 == 0 || num2 == 0){
+                textViewTitle.setText("Числа не должны равняться 0");
+                textViewNum1.setText("");
+                textViewNum2.setText("");
+                textViewMultiple.setText("");
+                textViewNOD.setText("");
+                return;
+            } else {
+                textViewTitle.setText("Введите натуральные числа:");
+            }
 
             //Получаем списки из простых множителей для введенных чисел
             List<Integer> primeFactorsNum1 = primeFactorization.getPrimeFactors(num1);
@@ -62,14 +77,22 @@ public class MainActivity extends AppCompatActivity {
             textViewNum1.setText(resultNum1);
             textViewNum2.setText(resultNum2);
 
+            // Если числа равны 1 то выводим их множитель 1
+            if (num1 == 1){
+                textViewNum1.setText("Простые множители для" + " " + num1Str + ":" + " 1");
+            }
+            if (num2 == 1){
+                textViewNum2.setText("Простые множители для" + " " + num2Str + ":" + " 1");
+            }
+
             // Вывод НОК
-            String multiple = "Наименьшее Общее Кратное для " + num1Str + " и " + num2Str + " равно: ";
+            String multiple = "НОК для " + num1Str + " и " + num2Str + " равно: ";
             Integer nod = calculateMultiple.getNOK(num1, num2);
             multiple += String.valueOf(nod);
             textViewMultiple.setText(multiple);
 
             // Вывод НОД
-            String denominator = "Наибольший Общий Делитель для " + num1Str + " и " + num2Str + " равен: ";
+            String denominator = "НОД для " + num1Str + " и " + num2Str + " равен: ";
             Integer nok = calculateMultiple.getNOD(num1, num2);
             denominator += String.valueOf(nok);
             textViewNOD.setText(denominator);

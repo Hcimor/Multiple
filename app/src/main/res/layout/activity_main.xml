@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Введите натуральные числа:"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:textSize="16sp"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
@@ -52,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:textSize="16sp"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNum1" />
@@ -62,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:textSize="16sp"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNOD" />
@@ -72,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:textSize="16sp"
         android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewNum2" />
@@ -81,10 +86,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Вычислить"
+        android:layout_marginTop="10dp"
         android:onClick="calculateMultiple"
         app:layout_constraintEnd_toEndOf="@+id/textTitle1"
         app:layout_constraintStart_toStartOf="@+id/textTitle1"
         app:layout_constraintTop_toBottomOf="@+id/textViewMultiple" />
+
+    <TextView
+        android:id="@+id/textViewInfo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="НОД - Наибольший Общий Делитель \nНОК - Наименьшее Общее Кратное"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddNunmer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
